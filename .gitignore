@@ -1,0 +1,51 @@
+composer.lock
+.htaccess
+
+# IDE Files
+/nbproject/
+.idea/*
+.DS_store
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+/tests/tests/
+/tests/results/
+
+# Custom Ignore
+wp-content/themes/*
+!wp-content/themes/kuteshop-child/
+!wp-content/themes/kuteshop-child/*
+
+# Core CMS
+.DS_Store
+
+portal/application/cache/*
+!portal/application/cache/index.html
+
+portal/application/logs/*
+!portal/application/logs/index.html
+
+!portal/application/*/.htaccess
+
+portal/composer.lock
+portal/tests/mocks/database/ci_test.sqlite
+
+/portal/vendor/
+
+# IDE Files
+#-------------------------
+/portal/nbproject/
+.idea/*
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+/tests/tests/
+/tests/results/
