@@ -31,6 +31,15 @@ portal/application/logs/*
 
 !portal/application/*/.htaccess
 
+# Custom Ignore
+portal/application/config/*
+!portal/application/config/routes.php
+
+portal/assets/media/*
+vendor/
+#index.php
+
+#.htaccess
 portal/composer.lock
 portal/tests/mocks/database/ci_test.sqlite
 
