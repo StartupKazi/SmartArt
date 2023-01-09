@@ -1,0 +1,126 @@
+// Method colorsCode
+@mixin colorsCode($map: $colors) {
+	@each $name, $colorcode in $map {
+		.vrm-color-#{$name} {
+			color: $colorcode !important;
+		}
+	}
+
+	// Background Color
+	@each $name, $colorcode in $map {
+		.vrm-bg-color-#{$name} {
+			background-color: $colorcode !important;
+		}
+	}
+}
+
+// margin
+@mixin marginSet() {
+	$list: (
+		t: top,
+		r: right,
+		b: bottom,
+		l: left,
+	);
+
+	@each $n, $v in $list {
+		@for $i from 1 through 10 {
+			$size: $i;
+			.vrm-rem-m#{$n}-#{$size} {
+				margin-#{$v}: #{$size}rem !important;
+			}
+		}
+
+		@for $i from 1 through 50 {
+			$size: $i;
+			.vrm-m#{$n}-#{$size} {
+				margin-#{$v}: #{$size}+ "%" !important;
+			}
+		}
+	}
+}
+
+// padding
+@mixin paddingSet() {
+	$list: (
+		t: top,
+		r: right,
+		b: bottom,
+		l: left,
+	);
+
+	@each $n, $v in $list {
+		@for $i from 1 through 10 {
+			$size: $i;
+			.vrm-rem-p#{$n}-#{$size} {
+				padding-#{$v}: #{$size}rem !important;
+			}
+		}
+
+		@for $i from 1 through 50 {
+			$size: $i;
+			.vrm-p#{$n}-#{$size} {
+				padding-#{$v}: #{$size}px !important;
+			}
+		}
+	}
+}
+
+// Width Size
+@mixin widthSize() {
+	// loop from 10 to 100 in 10
+	@for $i from 1 through 20 {
+		$size: $i * 5;
+		.vrm-width-#{$size} {
+			width: #{$size}% !important;
+		}
+	}
+}
+
+// Font Size
+@mixin fontSize() {
+	@for $i from 10 through 20 {
+		$size: $i;
+		.vrm-font-#{$size} {
+			font-size: #{$size}px !important;
+		}
+	}
+}
+
+// For Boostrap BG Color
+@mixin boostrapBG() {
+	$bgs: success, danger, primary, secondary, light, dark;
+	@each $bg in $bgs {
+		.badge {
+			&.bg-#{$bg} {
+				color: color(white) !important;
+
+				&:hover {
+					color: color(white) !important;
+				}
+			}
+		}
+	}
+	// Special Bgs
+	$spc_bgs: warning, info, light;
+	@each $bg in $spc_bgs {
+		.badge {
+			&.bg-#{$bg} {
+				color: color(black) !important;
+				&:hover {
+					color: color(black) !important;
+				}
+			}
+		}
+	}
+
+	.bg-info {
+		background-color: color(light-blue-5) !important;
+	}
+	.btn-info {
+		@extend .bg-info;
+		&:hover {
+			background-color: color(light-blue-4) !important;
+		}
+	}
+}

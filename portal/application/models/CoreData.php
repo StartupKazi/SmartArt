@@ -23,6 +23,22 @@ class CoreData extends CI_Model
 
         // Your own constructor code
     }
+
+    /**
+	 * Todo: Get User Name
+	 */
+	public function get_username($userid = null)
+	{
+		//User ID
+		$user = (is_null($userid)) ? $this->CoreLoad->session('id') : $userid;
+
+		//Get Profile
+		$username = $this->CoreCrud->selectSingleValue('users', 'name', array('id' => $user));
+
+		// Get User Name use ternarry
+		$name = (!is_null($username) && !empty($username)) ? $username : '';
+		return $name;
+	}
 }
 
 /** End of file CoreData.php */

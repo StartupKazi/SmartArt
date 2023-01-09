@@ -1,0 +1,1 @@
+<?= ((method_exists('CoreField', 'portal_Head'))) ? $this->CoreField->portal_Head($load_style = null) : ''; ?>

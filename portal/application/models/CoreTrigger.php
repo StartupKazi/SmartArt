@@ -26,6 +26,74 @@ class CoreTrigger extends CI_Model
 		// Your own constructor code
 	}
 
+	/**
+	 * 
+	 * Upload Settings
+	 * 
+	 * */
+	public function uploadSettings()
+	{
+
+		$config['encrypt_name'] = false;
+		$config['max_size'] = 4096;
+
+		return $config;
+	}
+
+	// Upload Settings
+	public function uploadDefault()
+	{
+		return false;
+	}
+
+	/********* URL HELPER *************/
+
+	/**
+	 * TODO: CAR
+	 */
+	public function member_UrlHelper($id)
+	{
+		// Get Journal Data
+		$field_data = $this->CoreCrud->selectFieldItem(array('id' => $id));
+		$field_data = json_decode($field_data[0], True);
+
+		$title = $field_data['name'];
+
+		// Return
+		return $title;
+	}
+
+	/**
+	 * TODO: Skip URL
+	 */
+	public function urlMetaHelper($moduleType)
+	{
+		// pluralize
+		$table = $this->plural->pluralize($moduleType['module']);
+		// singularize
+		$type = $this->plural->singularize($moduleType['type']);
+
+		// Check
+		if (strtolower($table) == 'fields') {
+			//Skipped
+			$skipped = ['member'];
+			if (in_array(strtolower($type), $skipped)) {
+				return false;
+			}
+		}
+
+		// Return
+		return true;
+	}
+
+	/********* PLAIN HELPER *************/
+	/**
+	 * Todo: Disable Plain For Member
+	 */
+	public function member_fieldUsePlain()
+	{
+		return false;
+	}
 
 }
 
